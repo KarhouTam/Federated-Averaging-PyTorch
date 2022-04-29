@@ -65,7 +65,7 @@ python main.py
 
 | Algorithm | Global Loss | Localized Loss | Global Acc | Localized Acc |
 | --------- | ----------- | -------------- | ---------- | ------------- |
-| FedAvg    | `1.6071`    | `0.2009`       | `89.80%`   | `98.80%`      |
+| FedAvg    | `1.7883`    | `0.5261`       | `90.00%`   | `96.40%`      |
 
 Localization means the model additionally train for 10 local epochs at the final evaluation phase, which is for adapting client’s local dataset.
 
