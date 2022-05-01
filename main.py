@@ -14,15 +14,15 @@ from os import listdir
 from data.cifar import CIFARDataset
 from data.mnist import MNISTDataset
 from data.synthetic import SyntheticDataset
-
-# from data.femnist import FEMNISTDataset
 # ===================================================================
+
 if __name__ == "__main__":
     parser = ArgumentParser()
     args = get_args(parser)
     random.seed(args.seed)
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed(args.seed)
+    torch.backends.cudnn.deterministic = True
     global_model = get_model((args.model, args.dataset))
     criterion = CrossEntropyLoss()
     client_num_in_total = len(listdir("data/{}/pickles".format(args.dataset)))
