@@ -42,11 +42,11 @@ class FedAvgTrainer(ClientTrainer):
         optimizer = optim.SGD(model_4_eval.parameters(), lr=self.lr)
         SerializationTool.deserialize_model(model_4_eval, global_model_parameters)
         # evaluate global FedAvg performance
-        loss_g, acc_g = evaluate(model_4_eval, self.valloader, self.criterion, self.gpu)
+        loss_g, acc_g = evaluate(model_4_eval, self.valloader, self.criterion, self.device)
         # localization
         self._train(model_4_eval, optimizer, 10)
         # evaluate localized FedAvg performance
-        loss_l, acc_l = evaluate(model_4_eval, self.valloader, self.criterion, self.gpu)
+        loss_l, acc_l = evaluate(model_4_eval, self.valloader, self.criterion, self.device)
 
         return loss_g, acc_g, loss_l, acc_l
 
